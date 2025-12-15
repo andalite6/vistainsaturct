@@ -1,0 +1,189 @@
+# RAT Example Output v4.0
+## Matching Exact Freddie Mac Spreadsheet Format
+
+---
+
+## User Input Example
+
+```
+We're implementing a Payoff Change that modifies how payoff remittances are 
+calculated for covered vs non-covered lenders. This affects CCRM's ability to 
+calculate funds custodian exposure. The change involves TCAT's SAS-based EUC 
+logic that sources data from CDW, ASDB and Cash Manager. ICM Finance needs to 
+update their cash flow forecast methodology. The total stress loss impact under 
+the new framework is approximately $192.5M difference.
+```
+
+---
+
+## FredAI Output
+
+### Risk Assessment Summary
+
+| Field | Value |
+|-------|-------|
+| Initiative | Payoff Change - Remittance Framework Modification |
+| Assessment Date | 2024-12-15 |
+| Assessed By | FredAI (AI-Assisted) |
+| Overall Risk Rating | HIGH |
+| Primary Assessor Groups | Investments & Capital Markets, Finance |
+
+---
+
+### 25-Block Heatmap Position
+
+```
+              │ Negl │ Ltd  │ Mod  │ Subs │ Extr │
+              │  1   │  2   │  3   │  4   │  5   │
+──────────────┼──────┼──────┼──────┼──────┼──────┤
+Almost Cert 5 │      │      │      │ [1]  │      │  ← Risk 1: Credit Risk
+Likely      4 │      │      │ [2]  │      │      │  ← Risk 2: Reporting Risk
+Likely      4 │      │      │ [3]  │      │      │  ← Risk 3: Technology Risk
+Possible    3 │      │      │      │      │      │
+Unlikely    2 │      │      │      │      │      │
+Remote      1 │      │      │      │      │      │
+
+Risk Positions:
+[1] Credit Risk / Counterparty Credit Risk: Almost Certain × Substantial = HIGH
+[2] Operational Risk / Reporting Risk: Likely × Moderate = HIGH  
+[3] Operational Risk / Technology Risk: Likely × Moderate = HIGH
+```
+
+---
+
+### Risk Assessment Table (Exportable)
+
+| Risk Level1 | Risk Level2 | Assessor Group | Assessment Status | Risk Assessment ID | Risk Description | Inherent Risk Impact | Inherent Risk Likelihood | Inherent Risk Rating | Inherent Risk Justification |
+|-------------|-------------|----------------|-------------------|-------------------|------------------|---------------------|-------------------------|---------------------|----------------------------|
+| Credit Risk | Counterparty Credit Risk | Investments & Capital Markets | Completed | [TBD] | The risk that CCRM is unable to calculate funds custodian exposure for loans on the existing payoff remittance framework versus the new payoff remittance framework resulting in inaccurate exposure calculations for funds custodians. | Substantial | Almost Certain | High | Leveraging a stressed scenario to compare Stress Loss for Custodians results in a change in Total Stress Loss equal to approximately $192.5M. This is equal to the difference between Current payoff remittance cycle for non-covered lenders + Proposed payoff remittance cycle for covered lenders ($403.8M) less the Current payoff remittance cycle for all lenders ($211.3). These values are derived using the peak exposure from March 2021 to simulate a stressed environment. As such, the Inherent Risk Rating is High, as it exceeds the Institutional Credit Risk threshold of $100M for Significant Change Assessment purposes. Note: Currently, there is no process in place to distinguish loans on the existing payoff framework vs the new payoff framework, resulting in Almost Certain likelihood. |
+| Operational Risk | Reporting Risk | Finance | Completed | [TBD] | ICM Finance: There is a risk that the cashflows associated with these transactions are not included in the Cash Flow Forecast (CFF). | Moderate | Likely | High | Impact: Have not been provided with amount of cashflows, but estimating that missing them could be moderate impact. Likelihood: If processes are not updated, it is likely new flows would not be forecast. |
+| Operational Risk | Technology Risk | Investments & Capital Markets | Completed | [TBD] | The risk that the SAS code logic supporting an EUC used by TCAT is not updated to reflect the expects appropriately which could result in non-compliance with Master Trust Agreements and a potential conflict of interest. | Moderate | Likely | High | Likelihood is assessed as Likely as BTO needs to make a determination if the SAS code needs to be updated to avoid false positive reconciliation differences in the attribution process which could have Substantial impact. Additionally, this change could result in a moderate/substantial impact to legal/regulatory and/or reputational risk. As such risk is assessed as High. |
+
+---
+
+### Control Assessment Table (Exportable)
+
+| Risk Assessment ID | Control ID (System Generated) | GRC Control ID - Control Title | GRC Control Description | Pre-Mitigation Risk Impact | Pre-Mitigation Risk Likelihood | Pre-Mitigation Risk Rating | Pre-Mitigation Risk Justification |
+|-------------------|------------------------------|-------------------------------|------------------------|---------------------------|-------------------------------|---------------------------|----------------------------------|
+| [TBD-1] | [TBD] | C001702 - C.FIN.FLAR.202 | On an annual and/or on as needed basis ICM Finance will review with the business areas their forecast methodology and trends of actual vs forecasted cashflows. Changes to the forecast methodology will require an approval from the designated business area approver (Director/VP) and the Director of ICM Finance team if there is a significant change. | Moderate | Possible | Medium | Our controls would not identify a variance until after activity posted, and could miss if amounts are small amounts. |
+| [TBD-2] | [TBD] | C001702 - C.FIN.FLAR.202 | On an annual and/or on as needed basis ICM Finance will review with the business areas their forecast methodology and trends of actual vs forecasted cashflows. Changes to the forecast methodology will require an approval from the designated business area approver (Director/VP) and the Director of ICM Finance team if there is a significant change. | Moderate | Possible | Medium | Control provides annual review mechanism but may not catch variance until after activity is posted. |
+| [TBD-3] | [TBD] | C004513 - C.ICM.MTCA.115 | Significant changes to TCAT EUCs are reviewed and approved by TCAT management. The review process is documented by the TCAT EUC owners and review and approval documentation is retained on the TCAT secure LAN. | Limited | Possible | Medium | EUC change control process provides oversight but SAS code changes require specific expertise to validate. |
+
+---
+
+### Condition Table (Exportable)
+
+| Risk Assessment ID | Planned Mitigation Activities | Condition ID (System Generated) | Condition Timeframe | Condition Description |
+|-------------------|------------------------------|--------------------------------|--------------------|-----------------------|
+| [TBD-1] | See conditions | [TBD] | Pre-execution | New remittance framework may impact MSR values (likely reduce) which may increase counterparty exposures. CCRM needs to better understand impact to MSR values. |
+| [TBD-2] | See conditions | [TBD] | Pre-execution | ICM Finance (Danny Vance): Updated methodology for TCAT to track and forecast cashflows. |
+| [TBD-3] | See conditions | [TBD] | Pre-execution | TCAT monitors, attributes and reconciles cash flows impacting the Trust Account. The source code of TCAT's data is derived using SAS-based programs that source data from a combination of CDW, ASDB and Cash Manager. This change will likely require significant change to the business logic in these SAS programs. It may also impact the logic TCAT currently uses to derive guarantor payment needs, particularly for 602 payoffs, which are collected the period after they are paid to investors. |
+
+---
+
+### Justification Detail Summary
+
+#### Risk 1: Counterparty Credit Risk
+
+**Classification Justification:**
+- L1: Credit Risk - Initiative involves financial exposure to counterparties
+- L2: Counterparty Credit Risk - Specifically relates to CCRM's ability to calculate funds custodian exposure
+- 📄 Source: Enterprise Risk Taxonomy, Section 1.3
+
+**Likelihood Justification:**
+- Rating: Almost Certain (5)
+- Key Signal: "Currently, there is no process in place to distinguish loans on the existing payoff framework vs the new payoff framework"
+- Without process controls, the exposure miscalculation is virtually certain to occur
+
+**Impact Justification:**
+- Rating: Substantial (4)
+- Quantification: $192.5M change in Total Stress Loss
+- Threshold Reference: Exceeds $100M Institutional Credit Risk threshold for Significant Change Assessment
+- Calculation: $403.8M (proposed) - $211.3M (current) = $192.5M delta
+- Stress scenario: Based on peak exposure from March 2021
+
+**Overall Inherent Risk:** HIGH (Almost Certain × Substantial)
+
+---
+
+#### Risk 2: Reporting Risk (Cash Flow Forecast)
+
+**Classification Justification:**
+- L1: Operational Risk - Relates to internal processes and reporting
+- L2: Reporting Risk - Specifically affects Cash Flow Forecast (CFF) accuracy
+- 📄 Source: Enterprise Risk Taxonomy, Section 5.1
+
+**Likelihood Justification:**
+- Rating: Likely (4)
+- Key Signal: "If processes are not updated, it is likely new flows would not be forecast"
+- Dependency on manual process update creates high probability of gap
+
+**Impact Justification:**
+- Rating: Moderate (3)
+- Rationale: "Have not been provided with amount of cashflows, but estimating that missing them could be moderate impact"
+- Financial impact estimated at moderate level pending specific cashflow quantification
+
+**Overall Inherent Risk:** HIGH (Likely × Moderate)
+
+---
+
+#### Risk 3: Technology Risk (SAS EUC Logic)
+
+**Classification Justification:**
+- L1: Operational Risk - Relates to technology operations
+- L2: Technology Risk - Specifically involves SAS code logic for EUC
+- 📄 Source: Enterprise Risk Taxonomy, Section 8.3
+
+**Likelihood Justification:**
+- Rating: Likely (4)
+- Key Signal: "BTO needs to make a determination if the SAS code needs to be updated"
+- Uncertainty about code changes creates high likelihood of reconciliation issues
+
+**Impact Justification:**
+- Rating: Moderate (3), with escalation potential to Substantial
+- Primary: "False positive reconciliation differences in the attribution process"
+- Secondary: "Non-compliance with Master Trust Agreements and a potential conflict of interest"
+- Escalation: "Could result in a moderate/substantial impact to legal/regulatory and/or reputational risk"
+
+**Overall Inherent Risk:** HIGH (Likely × Moderate/Substantial)
+
+---
+
+### Pre-Mitigation Risk Summary
+
+| Risk # | Risk | Inherent Rating | Control Effectiveness | Pre-Mitigation Rating | Change |
+|--------|------|-----------------|----------------------|----------------------|--------|
+| 1 | Counterparty Credit | High | Moderate (control gaps) | High | No change - condition required |
+| 2 | Reporting Risk | High | Satisfactory | Medium | Reduced via forecast methodology control |
+| 3 | Technology Risk | High | Satisfactory | Medium | Reduced via EUC change control |
+
+---
+
+### Items Requiring Human Review
+
+⚠️ **Risk 1:** CCRM needs to better understand impact to MSR values before execution
+⚠️ **Risk 2:** ICM Finance must update methodology for TCAT tracking
+⚠️ **Risk 3:** BTO determination required on SAS code updates; significant logic changes anticipated
+
+---
+
+### Export Instructions
+
+**To paste into Freddie Mac RAT spreadsheet:**
+1. Copy the table rows above
+2. Open RAT template in SharePoint/Excel Online
+3. Paste into appropriate sheet tab ("Risk Assessments")
+4. System will auto-assign Risk Assessment IDs and Condition IDs
+5. Update Assessor Group dropdowns as needed
+6. Set Assessment Status to "Completed" after review
+
+---
+
+### Document References
+
+| Document | Section | Used For |
+|----------|---------|----------|
+| Enterprise Risk Policy 11-101 | All | Taxonomy authority |
+| Enterprise Risk Taxonomy | 1.3, 5.1, 8.3 | L1/L2 definitions |
+| 25-Block Methodology | Current | Risk scoring |
+| SCA Guidelines | Threshold section | $100M threshold reference |
