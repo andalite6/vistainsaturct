@@ -1,0 +1,106 @@
+# RAT User Prompt - Copy & Paste Template
+
+## Quick Start Prompt
+
+Copy the following into FredAI to begin a Risk Assessment:
+
+---
+
+```
+I need to complete a Risk Assessment Template (RAT) for the following initiative:
+
+**Initiative Name:** [Enter name]
+
+**Description:** [Describe what this change/project involves in 2-3 sentences]
+
+**Business Objective:** [What business goal does this support?]
+
+**Systems/Data Affected:** [List systems, applications, data types, or third parties involved]
+
+**Timeline:** [Expected start and completion dates]
+
+**Business Owner:** [Name and role]
+
+Please:
+1. Identify all applicable risks using the L1/L2/L3 taxonomy
+2. Assess inherent risk using the 25-Block Methodology
+3. Suggest relevant controls and assess effectiveness
+4. Calculate residual risk
+5. Recommend risk responses
+6. Output in the standard RAT format
+
+Flag any items where you need clarification or where human review is recommended.
+```
+
+---
+
+## Example Filled-In Prompt
+
+```
+I need to complete a Risk Assessment Template (RAT) for the following initiative:
+
+**Initiative Name:** Customer Data Migration to AWS Cloud
+
+**Description:** Migrating customer mortgage application data from on-premises SQL Server databases to AWS Aurora PostgreSQL. This includes PII such as SSN, income data, and credit information. A third-party vendor (Acme Cloud Services) will assist with the migration.
+
+**Business Objective:** Reduce infrastructure costs by 40% and improve system scalability for peak processing periods.
+
+**Systems/Data Affected:** 
+- Legacy SQL Server databases (3 instances)
+- AWS Aurora PostgreSQL (new)
+- Customer PII including SSN, financial data
+- Third-party vendor: Acme Cloud Services
+- Integration with LoanIQ and Encompass systems
+
+**Timeline:** Start: January 15, 2025 | Go-Live: March 30, 2025
+
+**Business Owner:** Jane Smith, VP of Mortgage Technology
+
+Please:
+1. Identify all applicable risks using the L1/L2/L3 taxonomy
+2. Assess inherent risk using the 25-Block Methodology
+3. Suggest relevant controls and assess effectiveness
+4. Calculate residual risk
+5. Recommend risk responses
+6. Output in the standard RAT format
+
+Flag any items where you need clarification or where human review is recommended.
+```
+
+---
+
+## Shortcut Prompts
+
+### For Quick Risk Scan:
+```
+Quick risk scan for: [paste brief description]
+
+Identify top 3 risks with L3 classification and inherent risk rating.
+```
+
+### For Control Gap Analysis:
+```
+I have the following risks identified: [list risks]
+
+What controls should be in place? Identify any gaps based on Freddie Mac standards.
+```
+
+### For Residual Risk Update:
+```
+Update residual risk calculation for:
+- Risk: [name]
+- Inherent Risk: [rating]
+- New controls implemented: [list controls]
+
+Recalculate and provide updated RAT section.
+```
+
+---
+
+## Tips for Best Results
+
+1. **Be specific** about data types (PII, financial, confidential)
+2. **Name third parties** explicitly if vendors are involved
+3. **List all systems** that will be modified or integrated
+4. **Include timeline** for accurate likelihood assessment
+5. **Mention compliance** requirements if applicable (SOX, GLBA, etc.)
